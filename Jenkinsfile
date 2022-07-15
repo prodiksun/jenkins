@@ -9,7 +9,10 @@ pipeline {
         }
         stage('ExecuteScript') {
             steps {
-                sh 'GetStatusUrl.sh'
+                sh '''
+                ls -la
+                GetStatusUrl.sh
+                '''
                 echo "$RESULT"
                 
             }
