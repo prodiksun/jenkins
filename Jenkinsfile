@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('GetFileGithub') {
             steps {
-                echo 'Hello World'
+                git branch: 'main', credentialsId: 'github-auth', url: 'git@github.com:prodiksun/jenkins.git'
             }
         }
     }
