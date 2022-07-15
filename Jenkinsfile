@@ -11,10 +11,15 @@ pipeline {
             steps {
                 sh '''
                 ls -la
-                GetStatusUrl.sh
+                chmod 755 ${WORKSPACE}/GetStatusUrl.sh
+                ${WORKSPACE}/GetStatusUrl.sh
                 '''
-                echo "$RESULT"
                 
+            }
+        }
+        stage('SenMail') {
+            steps {
+                mail bcc: '', body: 'Answer from $URL - $result ', cc: '', from: '', replyTo: '', subject: 'Answer', to: 'prodik.sun@gmail.com'
             }
         }
     }
