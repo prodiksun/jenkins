@@ -7,5 +7,12 @@ pipeline {
                 git branch: 'main', credentialsId: 'github-auth', url: 'git@github.com:prodiksun/jenkins.git'
             }
         }
+        stage('ExecuteScript') {
+            steps {
+                sh 'GetStatusUrl.sh'
+                echo "$RESULT"
+                
+            }
+        }
     }
 }
