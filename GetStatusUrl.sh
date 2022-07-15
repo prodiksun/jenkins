@@ -2,13 +2,13 @@
 
 URL="https://ya.ru"
 
-result=`curl -I $URL 2>/dev/null | head -n 1 | cut -d$' ' -f2`
+RESULT=`curl -I $URL 2>/dev/null | head -n 1 | cut -d$' ' -f2`
 
-if [[ $result -eq 200 ]]
+if [[ $RESULT -eq 200 ]]
 then
-  result="success"
+  RESULT="success"
 else
-  result="failure"
+  RESULT="failure"
 fi
 
-echo $result >>  result.txt
+echo $RESULT >>  result.txt
