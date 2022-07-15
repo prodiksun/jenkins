@@ -10,3 +10,5 @@ then
 else
   result="failure"
 fi
+
+echo $result >>  result.txt
